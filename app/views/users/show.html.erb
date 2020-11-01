@@ -1,0 +1,20 @@
+<h1>Info for <%= @user.name %> </h1>
+
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>
+
+<% if @user.admin %>
+    <label for="user_admin">ADMIN</label>
+<% else %>
+    <ul>
+        <li>Mood: <%= @user.mood %></li>
+        <li>Tickets: <%= @user.tickets %></li>
+        <li>Height: <%= @user.height %></li>
+    </ul>
+<% end %>
+
+<%= link_to 'See attractions', attractions_path %>
+<%= link_to('Log Out', logout_path, method: :post) %>
